@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <SessionProvider>
       <PayPalScriptProvider options={{ 'client-id': process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID || '' }}>
 
-      
+      <div  className="fondo">
         <SWRConfig 
           value={{
             fetcher: (resource, init) => fetch(resource, init).then(res => res.json())
@@ -32,7 +32,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             </CartProvider>
           </AuthProvider>
         </SWRConfig>
-
+        </div>
       </PayPalScriptProvider>
     </SessionProvider>
   )
