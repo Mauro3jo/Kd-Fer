@@ -123,7 +123,7 @@ const LoginPage = () => {
                             </NextLink>
                         </Grid>
 
-                            
+                       
                         <Grid item xs={12} display='flex' flexDirection='column' justifyContent='end'>
                             <Divider sx={{ width: '100%', mb: 2 }} />
                             {
