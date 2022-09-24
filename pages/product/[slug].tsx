@@ -79,22 +79,6 @@ const ProductPage:NextPage<Props> = ({ product }) => {
             <Typography variant='subtitle1' component='h2'>{ `$${product.price}` }</Typography>
 
             {/* Cantidad */}
-            <Box sx={{ my: 2 }}>
-              <Typography variant='subtitle2'>Cantidad</Typography>
-              <ItemCounter 
-                currentValue={ tempCartProduct.quantity }
-                updatedQuantity={ onUpdateQuantity  }
-                maxValue={ product.inStock > 10 ? 10: product.inStock }
-              />
-              <SizeSelector 
-                // selectedSize={ product.sizes[2] } 
-                sizes={ product.sizes }
-                selectedSize={ tempCartProduct.size }
-                onSelectedSize={ selectedSize }
-              />
-            </Box>
-
-
             {/* Agregar al carrito */}
             {
               (product.inStock > 0)
