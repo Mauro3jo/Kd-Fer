@@ -81,41 +81,6 @@ export const SideMenu = () => {
                     )
                 }
 
-
-                <ListItem 
-                    button 
-                    sx={{ display: { xs: '', sm: 'none' } }} 
-                    onClick={ () => navigateTo('/category/men') }
-                >
-                    <ListItemIcon>
-                        <MaleOutlined/>
-                    </ListItemIcon>
-                    <ListItemText primary={'Hombres'} />
-                </ListItem>
-
-                <ListItem 
-                    button 
-                    sx={{ display: { xs: '', sm: 'none' } }}
-                    onClick={ () => navigateTo('/category/women') }
-                >
-                    <ListItemIcon>
-                        <FemaleOutlined/>
-                    </ListItemIcon>
-                    <ListItemText primary={'Mujeres'} />
-                </ListItem>
-
-                <ListItem 
-                    button 
-                    sx={{ display: { xs: '', sm: 'none' } }}
-                    onClick={ () => navigateTo('/category/kid') }
-                >
-                    <ListItemIcon>
-                        <EscalatorWarningOutlined/>
-                    </ListItemIcon>
-                    <ListItemText primary={'Niños'} />
-                </ListItem>
-
-
                 {
                     isLoggedIn 
                     ? (

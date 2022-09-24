@@ -110,8 +110,8 @@ const createProduct = async(req: NextApiRequest, res: NextApiResponse<Data>) => 
     
     const { images = [] } = req.body as IProduct;
 
-    if ( images.length < 2 ) {
-        return res.status(400).json({ message: 'El producto necesita al menos 2 imágenes' });
+    if ( images.length < 1 ) {
+        return res.status(400).json({ message: 'El producto necesita al menos 1 imágen' });
     }
     
     // TODO: posiblemente tendremos un localhost:3000/products/asdasd.jpg

@@ -13,9 +13,7 @@ import { tesloApi } from '../../../api';
 import { Product } from '../../../models';
 
 
-const validTypes  = ['shirts','pants','hoodies','hats']
-const validGender = ['men','women','kid','unisex']
-const validSizes = ['XS','S','M','L','XL','XXL','XXXL']
+
 
 
 interface FormData {
@@ -127,7 +125,7 @@ const ProductAdminPage:FC<Props> = ({ product }) => {
 
     const onSubmit = async( form: FormData ) => {
         
-        if ( form.images.length < 2 ) return alert('Mínimo 2 imagenes');
+        if ( form.images.length < 1 ) return alert('Mínimo 1 imagen');
         setIsSaving(true);
 
         try {
@@ -201,20 +199,7 @@ const ProductAdminPage:FC<Props> = ({ product }) => {
                             helperText={ errors.description?.message }
                         />
 
-                        <TextField
-                            label="Inventario"
-                            type='number'
-                            variant="filled"
-                            fullWidth 
-                            sx={{ mb: 1 }}
-                            { ...register('inStock', {
-                                required: 'Este campo es requerido',
-                                min: { value: 0, message: 'Mínimo de valor cero' }
-                            })}
-                            error={ !!errors.inStock }
-                            helperText={ errors.inStock?.message }
-                        />
-                        
+                       
                         <TextField
                             label="Precio"
                             type='number'
@@ -231,59 +216,10 @@ const ProductAdminPage:FC<Props> = ({ product }) => {
 
                         <Divider sx={{ my: 1 }} />
 
-                        <FormControl sx={{ mb: 1 }}>
-                            <FormLabel>Tipo</FormLabel>
-                            <RadioGroup
-                                row
-                                value={ getValues('type') }
-                                onChange={ ({ target })=> setValue('type', target.value, { shouldValidate: true }) }
-                            >
-                                {
-                                    validTypes.map( option => (
-                                        <FormControlLabel 
-                                            key={ option }
-                                            value={ option }
-                                            control={ <Radio color='secondary' /> }
-                                            label={ capitalize(option) }
-                                        />
-                                    ))
-                                }
-                            </RadioGroup>
-                        </FormControl>
+                       
 
-                        <FormControl sx={{ mb: 1 }}>
-                            <FormLabel>Género</FormLabel>
-                            <RadioGroup
-                                row
-                                value={ getValues('gender') }
-                                onChange={ ({ target })=> setValue('gender', target.value, { shouldValidate: true }) }
-                            >
-                                {
-                                    validGender.map( option => (
-                                        <FormControlLabel 
-                                            key={ option }
-                                            value={ option }
-                                            control={ <Radio color='secondary' /> }
-                                            label={ capitalize(option) }
-                                        />
-                                    ))
-                                }
-                            </RadioGroup>
-                        </FormControl>
-
-                        <FormGroup>
-                            <FormLabel>Tallas</FormLabel>
-                            {
-                                validSizes.map(size => (
-                                    <FormControlLabel
-                                        key={size}
-                                        control={ <Checkbox checked={ getValues('sizes').includes(size) } />} 
-                                        label={ size } 
-                                        onChange={ () => onChangeSize( size )  }
-                                    />
-                                ))
-                            }
-                        </FormGroup>
+                      
+                      
 
                     </Grid>
 
