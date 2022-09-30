@@ -80,26 +80,6 @@ const ProductPage:NextPage<Props> = ({ product }) => {
 
             {/* Cantidad */}
             {/* Agregar al carrito */}
-            {
-              (product.inStock > 0)
-               ? (
-                  <Button 
-                    color="secondary" 
-                    className='circular-btn'
-                    onClick={ onAddProduct }
-                  >
-                    {
-                      tempCartProduct.size
-                        ? 'Agregar al carrito'
-                        : 'Seleccione una talla'
-                    }
-                  </Button>
-               )
-               : (
-                 <Chip label="No hay disponibles" color="error" variant='outlined' />
-               )
-            }
-
 
             {/* Descripción */}
             <Box sx={{ mt:3 }}>

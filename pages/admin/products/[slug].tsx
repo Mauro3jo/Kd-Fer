@@ -200,19 +200,7 @@ const ProductAdminPage:FC<Props> = ({ product }) => {
                         />
 
                        
-                        <TextField
-                            label="Precio"
-                            type='number'
-                            variant="filled"
-                            fullWidth 
-                            sx={{ mb: 1 }}
-                            { ...register('price', {
-                                required: 'Este campo es requerido',
-                                min: { value: 0, message: 'Mínimo de valor cero' }
-                            })}
-                            error={ !!errors.price }
-                            helperText={ errors.price?.message }
-                        />
+                     
 
                         <Divider sx={{ my: 1 }} />
 
@@ -297,7 +285,7 @@ const ProductAdminPage:FC<Props> = ({ product }) => {
 
 
                             <Chip 
-                                label="Es necesario al 2 imagenes"
+                                label="Es necesario al menos 1 imagen"
                                 color='error'
                                 variant='outlined'
                                 sx={{ display: getValues('images').length < 2 ? 'flex': 'none' }}
